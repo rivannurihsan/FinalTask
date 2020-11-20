@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Http\Request;
 
-class LoginController extends Controller
+class RegenarateOtpCodeController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -16,24 +17,19 @@ class LoginController extends Controller
     public function __invoke(Request $request)
     {
         $request->validate([
-            'email' => 'required',
-            'password' => 'required'
+            'email' => 'required ',
         ]);
 
+        $user =User::where('email', $request->email)->first();
 
-        $credentials = $request->only(['email', 'password']);
+        $user->generate_otp_code();
 
-        if(!$token = auth()->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
-        }
-
-        $data['token'] = $token;
-        $data['user'] = auth()->user();
+        $data['user'] = $user;
 
         return response()->json([
             'response_code' => '00',
-            'response_message' => 'user berjasil login',
+            'response_message' => 'otp berhasil digenerate, silakan cek emai untuk melihat kode otp',
             'data' => $data
-        ], 200);
+        ]);
     }
 }

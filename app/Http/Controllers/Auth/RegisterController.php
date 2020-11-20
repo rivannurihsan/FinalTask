@@ -17,31 +17,21 @@ class RegisterController extends Controller
      */
     public function __invoke(Request $request)
     {
-        request()->validate([
-            'name' => [ 'required', 'min:3', 'max:25'],
-            'email' => ['email', 'required', 'unique:users,email'],
-            // 'password' => ['required', 'min:6'],
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:users,email|email',
         ]);
 
-        $user = User::create([
-            'name' => request('name'),
-            'email' => request('email'),
-            'email_verified_at' => null,
-            'password' => bcrypt("12345678"),
-            'remeber_token' =>   null,
-            'role_id' =>  "2d409040-57fe-4280-9194-00ab401194c0",
-            'photo' => null,
-
-        ]);
-
-        $otp = OtpCode::create([
-            ''
-        ]);
+        $data_request = $request->all();
+        $user = User::create($data_request);
+        
+        $data['user'] = $user;
 
         return response()->json([
             'response_code' => "01",
-            'response_message' => "silakan ceck email anda",
-            $user
+            'response_message' => "user berhasil ditambahkan, silakan ceck email anda",
+            'data' => $data
         ]);
+
     }
 }
