@@ -14,8 +14,10 @@
 // use App\Http\Controllers\HomeController;
 // use Illuminate\Support\Facades\Auth;
 
+Route::view('/{any?}', 'app')->where('any', '.*');
+
 // Route::get('/', function () {
-//     return view('welcome');
+//     return view('app');
 // });
 
 
