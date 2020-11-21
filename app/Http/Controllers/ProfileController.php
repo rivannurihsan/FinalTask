@@ -46,8 +46,6 @@ class ProfileController extends Controller
                 ], 200);
 
             }
-
-
         }
 
         $user->update([

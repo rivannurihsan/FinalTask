@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\OtpCode;
+// use App\OtpCode;
 use App\User;
+use App\Events\UserRegistered;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
@@ -23,7 +24,10 @@ class RegisterController extends Controller
         ]);
 
         $data_request = $request->all();
+
         $user = User::create($data_request);
+
+        event(new UserRegistered($user, 'register'));
         
         $data['user'] = $user;
 

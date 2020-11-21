@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Events\UserRegistered;
 use Illuminate\Http\Request;
 
 class RegenarateOtpCodeController extends Controller
@@ -23,6 +24,8 @@ class RegenarateOtpCodeController extends Controller
         $user =User::where('email', $request->email)->first();
 
         $user->generate_otp_code();
+
+        event(new UserRegistered($user, 'register'));
 
         $data['user'] = $user;
 
