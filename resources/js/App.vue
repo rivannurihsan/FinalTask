@@ -64,7 +64,7 @@
       <v-btn icon>
         <v-badge overlap color="orange">
           <template v-slot:badge>
-            <span>3</span>
+            <span class="counter">{{ counter}}</span>
           </template>
           <v-icon>mdi-cash-multiple</v-icon>
         </v-badge>
@@ -92,7 +92,7 @@
        <v-btn icon>
         <v-badge overlap color="orange">
           <template v-slot:badge>
-            <span>3</span>
+             <span class="counter">{{ counter}}</span>
           </template>
           <v-icon>mdi-cash-multiple</v-icon>
         </v-badge>
@@ -137,6 +137,9 @@
       isHome () {
         return (this.$route.path==='/' || this.$route.path === '/home')
       },
+      counter(){
+        return this.$store.getters.getCounter
+      }
     }
   }
 </script>

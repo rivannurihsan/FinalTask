@@ -39,6 +39,7 @@
           <v-icon>mdi-money</v-icon> &nbsp;
           DONATE
         </v-btn>
+        
       </v-card-actions>
 
     </v-card>
@@ -70,7 +71,14 @@ export default {
         })
     },
     donate(){
-      alert('danote')
+      this.$store.commit('increment')
+      //  <span class="counter">{{ counter}}</span>
+      // console.log(counter)
+    }
+  },
+  computed: {
+    counter(){
+      return this.$store.getters.getCounter
     }
   }
 }
