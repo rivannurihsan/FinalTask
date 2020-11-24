@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import { mapActions, mapMutations } from 'vuex';
 export default {
   data: () => ({
     campaign: {}, //bentuknya berupa objecj
@@ -70,11 +71,39 @@ export default {
           console.log(response)
         })
     },
-    donate(){
-      this.$store.commit('increment')
-      //  <span class="counter">{{ counter}}</span>
-      // console.log(counter)
-    }
+    // ...mapMutations({
+    //   donate: 'transaction/insert'
+    // })
+    ...mapMutations({
+      tambahTransaksi : 'transaction/insert'
+    }),
+
+    ...mapActions({
+      setAlert : 'alert/set'
+    }),
+    
+    donate() {
+      this.tambahTransaksi()
+      this.setAlert({
+        status : true,
+        color : 'success',
+        text : 'Transaksi ditambahkan'
+      })
+    },
+
+    // go(){
+    //   let { id } = this.$route.params
+    //   let url = '/api/campaign'+id
+    //   axios.get(url)
+    //     .then((response) => {
+    //       let { data } = response.data
+    //       this.campaign = data.campaign
+    //     })
+    //     .catch((error) => {
+    //       console.log(error)
+    //     })
+
+    // }
   },
   computed: {
     counter(){

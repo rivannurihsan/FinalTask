@@ -1,6 +1,8 @@
 <template>
   <!-- App.vue -->
   <v-app>
+    <alert/>
+
     <v-navigation-drawer app v-model="drawer">
       <v-list>
 
@@ -62,12 +64,13 @@
       <v-spacer></v-spacer>
 
       <v-btn icon>
-        <v-badge overlap color="orange">
+        <v-badge overlap color="orange" v-if="transactions>0">
           <template v-slot:badge>
-            <span class="counter">{{ counter}}</span>
+            <span>{{ transactions }}</span>
           </template>
           <v-icon>mdi-cash-multiple</v-icon>
         </v-badge>
+        <v-icon v-else>mdi-cash-multiple</v-icon>
       </v-btn>
 
       <v-text-field 
@@ -90,12 +93,13 @@
       <v-spacer></v-spacer>
 
        <v-btn icon>
-        <v-badge overlap color="orange">
+        <v-badge overlap color="orange" v-if="transactions>0">
           <template v-slot:badge>
-             <span class="counter">{{ counter}}</span>
+             <span>{{ transactions }}</span>
           </template>
           <v-icon>mdi-cash-multiple</v-icon>
         </v-badge>
+        <v-icon v-else>mdi-cash-multiple</v-icon>
       </v-btn>
     </v-app-bar>
       
@@ -123,8 +127,12 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
   export default {
     name: 'App',
+    components: {
+      Alert : () => import('./components/Alert')
+    },
     data: () => ({
       drawer: false,
       menus: [
@@ -137,10 +145,10 @@
       isHome () {
         return (this.$route.path==='/' || this.$route.path === '/home')
       },
-      counter(){
-        return this.$store.getters.getCounter
-      }
-    }
+      ...mapGetters({
+        transactions : 'transaction/transactions'
+      })
+    },
   }
 </script>
 
