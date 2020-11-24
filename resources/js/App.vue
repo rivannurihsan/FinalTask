@@ -1,7 +1,12 @@
 <template>
   <!-- App.vue -->
   <v-app>
-    <alert/>
+    
+    <alert />
+
+    <v-dialog v-model="dialog" fullscreen hide-overlay transition="scale-transition">
+      <search @closed="closeDialog" />
+    </v-dialog>
 
     <v-navigation-drawer app v-model="drawer">
       <v-list>
@@ -74,13 +79,13 @@
       </v-btn>
 
       <v-text-field 
-      slot="extension"
-      hide-details
-      append-icon="mdi-microphone"
-      flat
-      label="Search"
-      prepend-inner-icon="mdi-magnify"
-      solor-solo-inverted
+        slot="extension"
+        hide-details
+        append-icon="mdi-microphone"
+        flat
+        label="Search"
+        prepend-inner-icon="mdi-magnify"
+        solor-solo-inverted
       ></v-text-field>
          
     </v-app-bar>
@@ -128,10 +133,12 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import Alert from './components/Alert.vue';
   export default {
     name: 'App',
     components: {
-      Alert : () => import('./components/Alert')
+      Alert : () => import('./components/Alert'),
+      Search : () => import('./components/Search')
     },
     data: () => ({
       drawer: false,
@@ -140,6 +147,7 @@ import { mapGetters } from 'vuex';
         {title: 'Campaigns', icon:'mdi-hand-heart', route:'/campaigns'},
       ],
       guest : false,
+      dialog: false,
     }),
     computed: {
       isHome () {
@@ -149,6 +157,11 @@ import { mapGetters } from 'vuex';
         transactions : 'transaction/transactions'
       })
     },
+    methods: {
+      closeDialog(value) {
+        this.dialog = value
+      }
+    }
   }
 </script>
 
