@@ -9,9 +9,7 @@
 </head>
 <body>
   <div id="app">
-    <app>
-      
-    </app>
+    <app></app>
   </div>
   <script src="{{ url('/js/app.js')}}"></script>
 </body>

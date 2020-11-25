@@ -1,5 +1,4 @@
 <template>
-  <!-- App.vue -->
   <v-app>
     
     <alert />
@@ -86,6 +85,7 @@
         label="Search"
         prepend-inner-icon="mdi-magnify"
         solor-solo-inverted
+        @click="dialog=true"
       ></v-text-field>
          
     </v-app-bar>
@@ -134,9 +134,10 @@
 <script>
 import { mapGetters } from 'vuex';
 import Alert from './components/Alert.vue';
+import Search from './components/Search.vue';
   export default {
     name: 'App',
-    components: {
+    components : {
       Alert : () => import('./components/Alert'),
       Search : () => import('./components/Search')
     },
@@ -158,7 +159,7 @@ import Alert from './components/Alert.vue';
       })
     },
     methods: {
-      closeDialog(value) {
+      closeDialog (value) {
         this.dialog = value
       }
     }

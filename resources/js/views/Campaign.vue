@@ -56,24 +56,7 @@ export default {
     this.go()
   },
   methods: {
-    go(){
-      let { id } = this.$route.params
-      let url = '/api/campaign/'+id
-      axios.get(url)
-        .then((response) => {
-          let { data } = response.data
-          console.log(data)
-          this.campaign = data.campaigns
-          console.log("cek",this.campaign)
-        })
-        .catch((error) => {
-          let { response } = error
-          console.log(response)
-        })
-    },
-    // ...mapMutations({
-    //   donate: 'transaction/insert'
-    // })
+   
     ...mapMutations({
       tambahTransaksi : 'transaction/insert'
     }),
@@ -90,20 +73,21 @@ export default {
         text : 'Transaksi ditambahkan'
       })
     },
-
-    // go(){
-    //   let { id } = this.$route.params
-    //   let url = '/api/campaign'+id
-    //   axios.get(url)
-    //     .then((response) => {
-    //       let { data } = response.data
-    //       this.campaign = data.campaign
-    //     })
-    //     .catch((error) => {
-    //       console.log(error)
-    //     })
-
-    // }
+     go(){
+      let { id } = this.$route.params
+      let url = '/api/campaign/'+id
+      axios.get(url)
+        .then((response) => {
+          let { data } = response.data
+          // console.log(data)
+          this.campaign = data.campaigns
+          // console.log("cek",this.campaign)
+        })
+        .catch((error) => {
+          let { response } = error
+          console.log(response)
+        })
+    },
   },
   computed: {
     counter(){

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import transaction from './stores/transaction'
-import alert from './stores/alert'
+import transaction from './stores/transaction.js'
+import alert from './stores/alert.js'
 
 Vue.use(Vuex)
 

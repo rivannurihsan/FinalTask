@@ -75,7 +75,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     CampaignItem: function CampaignItem() {
-      return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ../components/CampaignItem */ "./resources/js/components/CampaignItem.vue"));
+      return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ../components/CampaignItem */ "./resources/js/components/CampaignItem.vue"));
     }
   },
   created: function created() {

@@ -19,7 +19,7 @@
     </v-toolbar>
 
     <v-card-text>
-      <v-subheader v-if="keyboard.length > 0" >
+      <v-subheader v-if="keyword.length>0">
         Result search "{{ keyword }}"
       </v-subheader>
       <v-alert 
@@ -27,7 +27,7 @@
         color="warning"
         outlined
       >
-      Sorry, but no result were found
+        Sorry, but no result were found
       </v-alert>
    
       <v-container class="ma-0 pa-0" grid-list-sm>
@@ -43,7 +43,7 @@
 </template>
 
 <script>
-// import CampaignItem from './CampaignItem.vue';
+import CampaignItem from './CampaignItem.vue';
 export default {
   name: 'search',
   components: {
@@ -67,7 +67,7 @@ export default {
             console.log(this.campaigns)
           })
           .catch((error) => {
-            console.log(error.message)
+            console.log(error)
           })
       }else {
         this.campaigns = []
@@ -76,7 +76,7 @@ export default {
     close(){
       this.$emit('closed', false)
     }
-  }
+  },
 
 }
 </script>

@@ -1,11 +1,11 @@
 <template>
   <v-snackbar
       v-model="alert"
-      color="success"
-      bottom
-      timeout="4000"
+      color="color"
+      buttom
       multi-line
       outlined
+      timeout="4000"
     >
       {{ text }}
       <template v-slot:action="{ attrs }">
@@ -13,9 +13,9 @@
           color="red"
           text
           v-bind="attrs"
-          @click="close = false"
+          @click="close"
         >
-          x
+          Close
         </v-btn>
       </template>
     </v-snackbar>
@@ -25,11 +25,6 @@
 import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'alert',
-  data(){
-    return {
-      timeout: 4000,
-    }
-  },
   computed: {
     ...mapGetters({
       status : 'alert/status',
@@ -50,14 +45,13 @@ export default {
   methods: {
     ...mapActions({
       setAlert : 'alert/set',
-
     }),
     close(){
       this.setAlert({
         status : false
       })
     }
-  }
+  },
 
   
 }
