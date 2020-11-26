@@ -3,24 +3,31 @@
     
     <alert />
 
-    <v-dialog v-model="dialog" fullscreen hide-overlay transition="scale-transition">
+    <!-- <v-dialog v-model="dialog" fullscreen hide-overlay transition="scale-transition">
       <search @closed="closeDialog" />
-    </v-dialog>
+    </v-dialog> -->
+
+    <!-- v-model dialog? or that -->
+    <keep-alive>
+      <v-dialog v-model="dialogStatus" fullscreen persistent transition="dialog-bottom-transition">
+        <component :is="currentComponent" @closed="setDialogStatus"></component>
+      </v-dialog>
+    </keep-alive>
 
     <v-navigation-drawer app v-model="drawer">
       <v-list>
 
         <v-list-item v-if="!guest"> 
           <v-list-item-avatar>
-            <img src="https:///randomuser.me/api/portraits/men/78.jpg" alt="user-avatar">
+            <v-img :src="user.user.photo"> </v-img>
           </v-list-item-avatar>
           <v-list-item-content> 
-            <v-list-item-title>John Doe</v-list-item-title>
+            <v-list-item-title>{{user.user.name}}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
         <div class="pa-2" v-if="guest"> 
-          <v-btn block color="primary" class="mb-1">
+          <v-btn block color="primary" class="mb-1" @click="setDialogComponent('login')">
             <v-icon left>mdi-lock</v-icon>
               Login
           </v-btn>
@@ -51,7 +58,7 @@
       
       <template v-slot:append v-if="!guest">
         <div class="pa-2">
-            <v-btn block color="red" dark>
+            <v-btn block color="red" dark @click="logout">
               <v-icon left>mdi-lock</v-icon>
                 Logout
             </v-btn>
@@ -85,7 +92,7 @@
         label="Search"
         prepend-inner-icon="mdi-magnify"
         solor-solo-inverted
-        @click="dialog=true"
+        @click="setDialogComponent('search')"
       ></v-text-field>
          
     </v-app-bar>
@@ -132,14 +139,15 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import Alert from './components/Alert.vue';
-import Search from './components/Search.vue';
+import { mapActions, mapGetters } from 'vuex';
+// import Alert from './components/Alert.vue';
+// import Search from './components/Search.vue';
   export default {
     name: 'App',
     components : {
       Alert : () => import('./components/Alert'),
-      Search : () => import('./components/Search')
+      Search : () => import('./components/Search'),
+      Login : () => import('./components/Login')
     },
     data: () => ({
       drawer: false,
@@ -147,22 +155,65 @@ import Search from './components/Search.vue';
         {title: 'Home', icon:'mdi-home', route:'/'},
         {title: 'Campaigns', icon:'mdi-hand-heart', route:'/campaigns'},
       ],
-      guest : false,
-      dialog: false,
     }),
     computed: {
       isHome () {
         return (this.$route.path==='/' || this.$route.path === '/home')
       },
       ...mapGetters({
-        transactions : 'transaction/transactions'
+        transactions            : 'transaction/transactions',
+        guest                   : 'auth/guest',
+        user                    : 'auth/user',
+        dialogStatus            : 'dialog/status',
+        currentComponent        : 'dialog/component',
       })
     },
-    methods: {
-      closeDialog (value) {
-        this.dialog = value
+    dialog: {
+      get() {
+        return this.dialogStatus
+      },
+      set (value) {
+        this.setDialogStatus(value)
       }
-    }
+    },
+    methods: {
+      ...mapActions({
+        setDialogStatus       : 'dialog/setStatus',
+        setDialogComponent    : 'dialog/setComponent',
+        setAuth               : 'auth/set',
+        setAlert              : 'alert/set',
+        checkToken            : 'auth/checkToken',
+      }),
+      logout(){
+        let config = {
+          headers: {
+            'Authorization' : 'Bearer ' + this.user.token,
+          }
+        }
+        axios.post('/api/auth/logout', {}, config)
+          .then((response) => {
+            this.setAuth({}) //kosongkan auth ketika logout
+            this.setAlert({
+              status :  true,
+              color  : 'success',
+              text : 'Logout successfully'
+            })
+          })
+          .catch((error) => {
+            let { data } = error.response
+            this.setAlert({
+              status : true,
+              color : 'error',
+              text : data.message
+            })
+          })
+      }
+    },
+    mounted(){
+      if(this.user){
+        this.checkToken(this.user)
+      }
+    },
   }
 </script>
 
