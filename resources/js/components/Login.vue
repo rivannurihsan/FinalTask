@@ -1,7 +1,7 @@
 <template>
   <v-card>
 
-    <v-toolbar dark color="teal darken-3">
+    <v-toolbar dark color="indigo accent-2">
       <v-btn icon dark @click.native="close">
         <v-icon>mdi-close</v-icon>
       </v-btn>
@@ -36,7 +36,7 @@
 
         <div class="text-xs-center">
           <v-btn
-            color="teal lighten-1 white--text"
+            color="light-blue accent-4 white--text"
             :disabled = "!valid"
             @click="submit"
           >
@@ -45,7 +45,7 @@
           </v-btn>
 
           <v-btn
-            color="primary lighten-1"
+            color="teal accent-4 white--text"
             @click="authProvider('google')"
           >
             Login with Google

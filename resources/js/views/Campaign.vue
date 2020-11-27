@@ -36,7 +36,7 @@
       </v-card-text>
       
       <v-card-actions>
-        <v-btn block color="teal darken-3 white--text" @click="donate" :disable="campaign.collected >= campaign.required">
+        <v-btn block color="indigo accent-2 white--text" @click="donate" :disable="campaign.collected >= campaign.required">
           <v-icon>mdi-money</v-icon> &nbsp;
           DONATE
         </v-btn>

@@ -3587,7 +3587,7 @@ var render = function() {
                           staticClass: "mb-1",
                           attrs: {
                             block: "",
-                            color: "teal lighten-1 white--text"
+                            color: "light-blue accent-4 white--text"
                           },
                           on: {
                             click: function($event) {
@@ -3609,7 +3609,7 @@ var render = function() {
                         {
                           attrs: {
                             block: "",
-                            color: "light-blue lighten-1 white--text"
+                            color: "teal accent-4 white--text"
                           }
                         },
                         [
@@ -3665,7 +3665,7 @@ var render = function() {
       _vm.isHome
         ? _c(
             "v-app-bar",
-            { attrs: { app: "", color: "teal darken-3", dark: "" } },
+            { attrs: { app: "", color: "indigo accent-2", dark: "" } },
             [
               _c("v-app-bar-nav-icon", {
                 on: {
@@ -3676,7 +3676,7 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _c("v-toolbar-title", [_vm._v("Crowdfunding")]),
+              _c("v-toolbar-title", [_vm._v("WeAllCare")]),
               _vm._v(" "),
               _c("v-spacer"),
               _vm._v(" "),
@@ -3741,7 +3741,7 @@ var render = function() {
           )
         : _c(
             "v-app-bar",
-            { attrs: { app: "", color: "teal darken-3", dark: "" } },
+            { attrs: { app: "", color: "indigo accent-2", dark: "" } },
             [
               _c(
                 "v-btn",
@@ -3820,7 +3820,13 @@ var render = function() {
         [
           _c(
             "v-footer",
-            { attrs: { absolute: "", app: "" } },
+            {
+              attrs: {
+                absolute: "",
+                app: "",
+                color: "indigo accent-4 white--text"
+              }
+            },
             [
               _c("v-card-text", { staticClass: "text-center" }, [
                 _vm._v(

@@ -2,7 +2,7 @@
   <v-app>
     
     <alert />
-    
+
     <!-- v-model dialog? or that -->
     <keep-alive>
       <v-dialog v-model="dialogStatus" fullscreen persistent transition="dialog-bottom-transition">
@@ -23,11 +23,11 @@
         </v-list-item>
 
         <div class="pa-2" v-if="guest"> 
-          <v-btn block color="teal lighten-1 white--text" class="mb-1" @click="setDialogComponent('login')">
+          <v-btn block color="light-blue accent-4 white--text" class="mb-1" @click="setDialogComponent('login')">
             <v-icon left>mdi-lock</v-icon>
               Login
           </v-btn>
-          <v-btn block color="light-blue lighten-1 white--text" >
+          <v-btn block color="teal accent-4 white--text" >
             <v-icon left>mdi-account</v-icon>
                 Register
           </v-btn>
@@ -63,9 +63,9 @@
      
     </v-navigation-drawer>
 
-    <v-app-bar app color="teal darken-3" dark v-if="isHome">
+    <v-app-bar app color="indigo accent-2" dark v-if="isHome">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>Crowdfunding</v-toolbar-title>
+      <v-toolbar-title>WeAllCare</v-toolbar-title>
 
       <!-- pemisah konten -->
       <v-spacer></v-spacer>
@@ -93,7 +93,7 @@
          
     </v-app-bar>
 
-    <v-app-bar app color="teal darken-3" dark v-else>
+    <v-app-bar app color="indigo accent-2" dark v-else>
       <v-btn icon @click.stop="$router.go(-1)">
         <v-icon>mdi-arrow-left-circle</v-icon>
       </v-btn>
@@ -124,8 +124,8 @@
       </v-container>
     </v-main>
 
-    <v-card>
-      <v-footer absolute app>
+    <v-card >
+      <v-footer absolute app color="indigo accent-4 white--text">
         <v-card-text class="text-center">
           &copy; {{ new Date().getFullYear() }} - <strong>Crowdfunding </strong>
         </v-card-text>

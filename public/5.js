@@ -227,7 +227,7 @@ var render = function() {
                     {
                       attrs: {
                         block: "",
-                        color: "teal darken-3 white--text",
+                        color: "indigo accent-2 white--text",
                         disable: _vm.campaign.collected >= _vm.campaign.required
                       },
                       on: { click: _vm.donate }

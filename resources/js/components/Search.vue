@@ -1,7 +1,7 @@
 <template>
   <v-card>
 
-    <v-toolbar dark color="teal darken-3">
+    <v-toolbar dark color="indigo accent-2">
       <v-btn icon dark @click.native="close">
         <v-icon>mdi-close</v-icon>
       </v-btn>
@@ -30,7 +30,7 @@
         Sorry, but no result were found
       </v-alert>
    
-      <v-container class="ma-0 pa-0" grid-list-sm>
+      <v-container class="ma-0 pa-0" grid-list-sm fluid>
         <v-layout wrap>
           <v-flex v-for="(campaign) in campaigns" :key="`campaign-`+campaign.id" xs6>
             <campaign-item :campaign="campaign" @click.native="close"/>

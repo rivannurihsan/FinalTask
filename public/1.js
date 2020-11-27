@@ -254,7 +254,7 @@ var render = function() {
     [
       _c(
         "v-toolbar",
-        { attrs: { dark: "", color: "teal darken-3" } },
+        { attrs: { dark: "", color: "indigo accent-2" } },
         [
           _c(
             "v-btn",
@@ -317,7 +317,10 @@ var render = function() {
           _vm._v(" "),
           _c(
             "v-container",
-            { staticClass: "ma-0 pa-0", attrs: { "grid-list-sm": "" } },
+            {
+              staticClass: "ma-0 pa-0",
+              attrs: { "grid-list-sm": "", fluid: "" }
+            },
             [
               _c(
                 "v-layout",
