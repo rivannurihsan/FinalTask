@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container class="ma-0 pa-0 " grid-list-sm>
+    <v-container class="ma-0 py-3 " grid-list-sm fluid>
       <div class="text-right">
           <v-btn small text to='/campaigns' class="blue--text">
           All Campaigns
@@ -27,7 +27,7 @@
   
 
     <!-- BLOGS -->
-    <v-container class="ma-0 pa-0 " grid-list-sm>
+    <v-container class="ma-0 py-3 " grid-list-sm fluid>
         <div class="text-right">
             <v-btn small text to='/blogs' class="blue--text">
           All Blogs
@@ -77,9 +77,8 @@ export default {
       })
 
       //blogs
-      axios.get('api/blog/random/2')
+      axios.get('api/blog/random/4')
       .then((response) => {
-        // console.log(response)
         let { data } = response.data
         this.blogs = data.blogs
       })

@@ -1,6 +1,7 @@
 <template>
   <div>
-    <v-card v-if="campaign.id">
+    <v-card v-if="campaign.id" class="py-5 mx-2">
+       <!-- <v-img :src="user.user.photo"> </v-img> -->
       <v-img 
         :src="campaign.image"
         class="white--text"
@@ -79,9 +80,9 @@ export default {
       axios.get(url)
         .then((response) => {
           let { data } = response.data
-          // console.log(data)
+          console.log(data)
           this.campaign = data.campaigns
-          // console.log("cek",this.campaign)
+          console.log("cek",this.campaign.image)
         })
         .catch((error) => {
           let { response } = error

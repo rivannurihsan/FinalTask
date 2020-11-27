@@ -36,6 +36,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -92,9 +94,12 @@ var render = function() {
     [
       _c(
         "v-container",
-        { staticClass: "ma-0 pa-0", attrs: { grid: "", "list-sm": "" } },
+        {
+          staticClass: "mx-2 py-3",
+          attrs: { grid: "", "list-sm": "", fluid: "" }
+        },
         [
-          _c("v-subheader", [_vm._v("\n      All Compaigns\n    ")]),
+          _c("v-subheader", [_c("h1", [_vm._v("All Campaigns")])]),
           _vm._v(" "),
           _c(
             "v-layout",
@@ -102,7 +107,11 @@ var render = function() {
             _vm._l(_vm.campaigns, function(campaign) {
               return _c(
                 "v-flex",
-                { key: "campaign-" + campaign.id, attrs: { xs6: "" } },
+                {
+                  key: "campaign-" + campaign.id,
+                  staticClass: "py-3 px-2",
+                  attrs: { xs6: "" }
+                },
                 [_c("campaign-item", { attrs: { campaign: campaign } })],
                 1
               )
@@ -111,6 +120,7 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("v-pagination", {
+            staticClass: "py-5",
             attrs: { length: _vm.lengthPage, "total-visible": 6 },
             on: { input: _vm.go },
             model: {

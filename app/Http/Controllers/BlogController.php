@@ -45,7 +45,7 @@ class BlogController extends Controller
             $image_location = $image_folder.$image_name;
 
             try {
-                $image->move(oublic_path($image_folder), $image_name);
+                $image->move(public_path($image_folder), $image_name);
 
                 $blog->update([
                     'image' => $image_location,

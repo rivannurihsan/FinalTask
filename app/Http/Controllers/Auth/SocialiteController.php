@@ -36,7 +36,8 @@ class SocialiteController extends Controller
 
             $user = User::whereEmail($social_user->email)->first();
 
-            if(!$user){
+            if(!$user)
+            {
                 if($provider == 'google'){
                     $photo_profile = $social_user->avatar;
                 }
@@ -55,6 +56,7 @@ class SocialiteController extends Controller
             return response()->json([
                 'response_code' => '01',
                 'response_message' => 'login successfull',
+                'data' => $data
             ], 200);
 
         } catch (\Throwable $th) {

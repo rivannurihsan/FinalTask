@@ -1,11 +1,11 @@
 <template>
   <div>
-    <v-container class="ma-0 pa-0" grid list-sm>
+    <v-container class="mx-2 py-3" grid list-sm fluid>
       <v-subheader>
-        All Compaigns
+        <h1>All Campaigns</h1>
       </v-subheader>
       <v-layout wrap>
-        <v-flex v-for="(campaign) in campaigns" :key="`campaign-`+campaign.id" xs6>
+        <v-flex v-for="(campaign) in campaigns" :key="`campaign-`+campaign.id" xs6 class="py-3 px-2">
           <!-- <v-card :to="'/campaign/'+campaign.id">
             <v-img :src="campaign.image" class="black--text"></v-img>
               <v-card-title class="fill-height align-end" v-text="campaign.title"></v-card-title>
@@ -14,7 +14,9 @@
           <campaign-item :campaign="campaign" />
         </v-flex>
       </v-layout>
+
       <v-pagination
+        class="py-5"
         v-model="page"
         @input="go"
         :length="lengthPage"

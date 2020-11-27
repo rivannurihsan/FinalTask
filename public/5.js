@@ -64,6 +64,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -94,9 +95,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var id = this.$route.params.id;
       var url = '/api/campaign/' + id;
       axios.get(url).then(function (response) {
-        var data = response.data.data; // console.log(data)
-
-        _this.campaign = data.campaigns; // console.log("cek",this.campaign)
+        var data = response.data.data;
+        console.log(data);
+        _this.campaign = data.campaigns;
+        console.log("cek", _this.campaign.image);
       })["catch"](function (error) {
         var response = error.response;
         console.log(response);
@@ -133,6 +135,7 @@ var render = function() {
       _vm.campaign.id
         ? _c(
             "v-card",
+            { staticClass: "py-5 mx-2" },
             [
               _c(
                 "v-img",

@@ -3,9 +3,6 @@
     
     <alert />
 
-    <!-- <v-dialog v-model="dialog" fullscreen hide-overlay transition="scale-transition">
-      <search @closed="closeDialog" />
-    </v-dialog> -->
 
     <!-- v-model dialog? or that -->
     <keep-alive>

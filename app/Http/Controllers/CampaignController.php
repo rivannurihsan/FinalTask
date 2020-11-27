@@ -41,7 +41,7 @@ class CampaignController extends Controller
             $image=$request->file('image');
             $image_extension = $image->getClientOriginalExtension();
             $image_name = $campaign->id.".".$image_extension;
-            $image_folder = 'photos/campaign/';
+            $image_folder = '/photos/campaign/';
             $image_location = $image_folder.$image_name;
 
             try {

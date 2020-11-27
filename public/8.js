@@ -90,8 +90,7 @@ __webpack_require__.r(__webpack_exports__);
       console.log(response);
     }); //blogs
 
-    axios.get('api/blog/random/2').then(function (response) {
-      // console.log(response)
+    axios.get('api/blog/random/4').then(function (response) {
       var data = response.data.data;
       _this.blogs = data.blogs;
     })["catch"](function (error) {
@@ -123,7 +122,7 @@ var render = function() {
     [
       _c(
         "v-container",
-        { staticClass: "ma-0 pa-0 ", attrs: { "grid-list-sm": "" } },
+        { staticClass: "ma-0 py-3 ", attrs: { "grid-list-sm": "", fluid: "" } },
         [
           _c(
             "div",
@@ -164,7 +163,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "v-container",
-        { staticClass: "ma-0 pa-0 ", attrs: { "grid-list-sm": "" } },
+        { staticClass: "ma-0 py-3 ", attrs: { "grid-list-sm": "", fluid: "" } },
         [
           _c(
             "div",
