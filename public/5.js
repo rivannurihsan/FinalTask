@@ -97,11 +97,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       axios.get(url).then(function (response) {
         var data = response.data.data;
         console.log(data);
-        _this.campaign = data.campaigns;
+        _this.campaign = data.campaign;
         console.log("cek", _this.campaign.image);
       })["catch"](function (error) {
-        var response = error.response;
-        console.log(response);
+        var response = error.response; // console.log(response)
       });
     }
   }),
@@ -141,7 +140,7 @@ var render = function() {
                 "v-img",
                 {
                   staticClass: "white--text",
-                  attrs: { src: _vm.campaign.image, height: "200px" }
+                  attrs: { src: _vm.campaign.image, height: "350px" }
                 },
                 [
                   _c("v-card-title", {
@@ -200,7 +199,7 @@ var render = function() {
                           1
                         ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "orange--text" }, [
+                        _c("td", { staticClass: "orange--text " }, [
                           _vm._v(
                             "Rp. " +
                               _vm._s(
@@ -228,7 +227,7 @@ var render = function() {
                     {
                       attrs: {
                         block: "",
-                        color: "primary",
+                        color: "teal darken-3 white--text",
                         disable: _vm.campaign.collected >= _vm.campaign.required
                       },
                       on: { click: _vm.donate }

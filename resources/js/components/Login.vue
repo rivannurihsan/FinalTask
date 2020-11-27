@@ -1,7 +1,7 @@
 <template>
   <v-card>
 
-    <v-toolbar dark color="success">
+    <v-toolbar dark color="teal darken-3">
       <v-btn icon dark @click.native="close">
         <v-icon>mdi-close</v-icon>
       </v-btn>
@@ -36,7 +36,7 @@
 
         <div class="text-xs-center">
           <v-btn
-            color="success lighten-1"
+            color="teal lighten-1 white--text"
             :disabled = "!valid"
             @click="submit"
           >

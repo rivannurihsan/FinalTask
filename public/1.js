@@ -47,7 +47,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['campaign'],
   computed: {
     progress: function progress() {
-      return this.campaign.collected / this.campaign.required * 100;
+      return Math.round(this.campaign.collected / this.campaign.required * 100);
     }
   }
 });
@@ -254,7 +254,7 @@ var render = function() {
     [
       _c(
         "v-toolbar",
-        { attrs: { dark: "", color: "success" } },
+        { attrs: { dark: "", color: "teal darken-3" } },
         [
           _c(
             "v-btn",

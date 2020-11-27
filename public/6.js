@@ -33,11 +33,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -61,6 +56,7 @@ __webpack_require__.r(__webpack_exports__);
       var url = 'api/campaign?page=' + this.page;
       axios.get(url).then(function (response) {
         var data = response.data.data;
+        console.log("campaigns", data);
         _this.campaigns = data.campaigns.data;
         _this.page = data.campaigns.current_page;
         _this.lengthPage = data.campaigns.last_page;

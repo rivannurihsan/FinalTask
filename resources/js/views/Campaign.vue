@@ -1,11 +1,11 @@
 <template>
   <div>
     <v-card v-if="campaign.id" class="py-5 mx-2">
-       <!-- <v-img :src="user.user.photo"> </v-img> -->
-      <v-img 
-        :src="campaign.image"
-        class="white--text"
-        height="200px"
+       <v-img 
+       :src="campaign.image" 
+       class="white--text"
+       height="350px"
+       
       >
         <v-card-title
           class="fill-height align-end"
@@ -27,7 +27,7 @@
             </tr>
             <tr>
               <td><v-icon>mdi-cash</v-icon>Dibutuhkan</td>
-              <td class="orange--text">Rp. {{ campaign.required.toLocaleString('id-ID') }}</td>
+              <td class="orange--text ">Rp. {{ campaign.required.toLocaleString('id-ID') }}</td>
             </tr>
           </tbody>
         </v-simple-table>
@@ -36,7 +36,7 @@
       </v-card-text>
       
       <v-card-actions>
-        <v-btn block color="primary" @click="donate" :disable="campaign.collected >= campaign.required">
+        <v-btn block color="teal darken-3 white--text" @click="donate" :disable="campaign.collected >= campaign.required">
           <v-icon>mdi-money</v-icon> &nbsp;
           DONATE
         </v-btn>
@@ -57,7 +57,6 @@ export default {
     this.go()
   },
   methods: {
-   
     ...mapMutations({
       tambahTransaksi : 'transaction/insert'
     }),
@@ -81,12 +80,12 @@ export default {
         .then((response) => {
           let { data } = response.data
           console.log(data)
-          this.campaign = data.campaigns
+          this.campaign = data.campaign
           console.log("cek",this.campaign.image)
         })
         .catch((error) => {
           let { response } = error
-          console.log(response)
+          // console.log(response)
         })
     },
   },

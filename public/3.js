@@ -190,7 +190,7 @@ var render = function() {
     [
       _c(
         "v-toolbar",
-        { attrs: { dark: "", color: "success" } },
+        { attrs: { dark: "", color: "teal darken-3" } },
         [
           _c(
             "v-btn",
@@ -278,7 +278,7 @@ var render = function() {
                     "v-btn",
                     {
                       attrs: {
-                        color: "success lighten-1",
+                        color: "teal lighten-1 white--text",
                         disabled: !_vm.valid
                       },
                       on: { click: _vm.submit }

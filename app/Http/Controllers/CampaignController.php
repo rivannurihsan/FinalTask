@@ -84,9 +84,9 @@ class CampaignController extends Controller
 
     public function detail($id)
     {
-        $campaigns = Campaign::find($id);
+        $campaign = Campaign::find($id);
 
-        $data['campaigns'] = $campaigns;
+        $data['campaign'] = $campaign;
 
         return response()->json([
             'response_code' => '00',

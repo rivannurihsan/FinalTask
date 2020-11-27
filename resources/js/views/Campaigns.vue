@@ -6,11 +6,6 @@
       </v-subheader>
       <v-layout wrap>
         <v-flex v-for="(campaign) in campaigns" :key="`campaign-`+campaign.id" xs6 class="py-3 px-2">
-          <!-- <v-card :to="'/campaign/'+campaign.id">
-            <v-img :src="campaign.image" class="black--text"></v-img>
-              <v-card-title class="fill-height align-end" v-text="campaign.title"></v-card-title>
-            </v-img>
-          </v-card> -->
           <campaign-item :campaign="campaign" />
         </v-flex>
       </v-layout>
@@ -46,6 +41,7 @@ export default {
       axios.get(url)
         .then((response) => {
           let { data } = response.data
+          console.log("campaigns", data)
           this.campaigns = data.campaigns.data
           this.page = data.campaigns.current_page
           this.lengthPage = data.campaigns.last_page

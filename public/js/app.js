@@ -2166,7 +2166,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
  // import Alert from './components/Alert.vue';
 // import Search from './components/Search.vue';
 
@@ -3586,7 +3585,10 @@ var render = function() {
                         "v-btn",
                         {
                           staticClass: "mb-1",
-                          attrs: { block: "", color: "primary" },
+                          attrs: {
+                            block: "",
+                            color: "teal lighten-1 white--text"
+                          },
                           on: {
                             click: function($event) {
                               return _vm.setDialogComponent("login")
@@ -3604,7 +3606,12 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "v-btn",
-                        { attrs: { block: "", color: "success" } },
+                        {
+                          attrs: {
+                            block: "",
+                            color: "light-blue lighten-1 white--text"
+                          }
+                        },
                         [
                           _c("v-icon", { attrs: { left: "" } }, [
                             _vm._v("mdi-account")
@@ -3658,7 +3665,7 @@ var render = function() {
       _vm.isHome
         ? _c(
             "v-app-bar",
-            { attrs: { app: "", color: "success", dark: "" } },
+            { attrs: { app: "", color: "teal darken-3", dark: "" } },
             [
               _c("v-app-bar-nav-icon", {
                 on: {
@@ -3734,7 +3741,7 @@ var render = function() {
           )
         : _c(
             "v-app-bar",
-            { attrs: { app: "", color: "success", dark: "" } },
+            { attrs: { app: "", color: "teal darken-3", dark: "" } },
             [
               _c(
                 "v-btn",
