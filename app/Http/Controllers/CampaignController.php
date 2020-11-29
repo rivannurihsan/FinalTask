@@ -35,15 +35,14 @@ class CampaignController extends Controller
             'title' => $request->title,
             'description' => $request->description
         ]);
-
+        console.log("nama"+$image_name);
         if($request->hasFile('image')){
 
             $image=$request->file('image');
             $image_extension = $image->getClientOriginalExtension();
             $image_name = $campaign->id.".".$image_extension;
-            $image_folder = '/photos/campaign/';
-            $image_location = $image_folder.$image_name;
-
+            $image_folder = 'photos/campaign/';
+            $image_location = $image_folder . $image_name;
             try {
                 $image->move(public_path($image_folder), $image_name);
 

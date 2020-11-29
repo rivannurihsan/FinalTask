@@ -75,6 +75,7 @@ __webpack_require__.r(__webpack_exports__);
       // console.log(response)
       var data = response.data.data;
       _this.campaigns = data.campaigns;
+      console.log(_this.campaigns);
     })["catch"](function (error) {
       var response = error.response;
       console.log(response);
@@ -191,7 +192,7 @@ var render = function() {
                         "v-img",
                         {
                           staticClass: "fill-height",
-                          attrs: { src: blog.image }
+                          attrs: { src: "/photos/blog/" + blog.image }
                         },
                         [
                           _c(

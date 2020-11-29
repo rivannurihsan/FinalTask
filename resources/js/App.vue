@@ -65,7 +65,7 @@
 
     <v-app-bar app color="indigo accent-2" dark v-if="isHome">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>WeAllCare</v-toolbar-title>
+      <v-toolbar-title>KitaBerbagi</v-toolbar-title>
 
       <!-- pemisah konten -->
       <v-spacer></v-spacer>
@@ -127,7 +127,7 @@
     <v-card >
       <v-footer absolute app color="indigo accent-4 white--text">
         <v-card-text class="text-center">
-          &copy; {{ new Date().getFullYear() }} - <strong>Crowdfunding </strong>
+          &copy; {{ new Date().getFullYear() }} - <strong>KitaBerbagi </strong>
         </v-card-text>
       </v-footer>  
     </v-card>

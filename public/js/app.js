@@ -3676,7 +3676,7 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _c("v-toolbar-title", [_vm._v("WeAllCare")]),
+              _c("v-toolbar-title", [_vm._v("KitaBerbagi")]),
               _vm._v(" "),
               _c("v-spacer"),
               _vm._v(" "),
@@ -3832,7 +3832,7 @@ var render = function() {
                 _vm._v(
                   "\n        © " + _vm._s(new Date().getFullYear()) + " - "
                 ),
-                _c("strong", [_vm._v("Crowdfunding ")])
+                _c("strong", [_vm._v("KitaBerbagi ")])
               ])
             ],
             1
@@ -65071,8 +65071,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\Latihan\private-sanber\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\Latihan\private-sanber\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Applications/XAMPP/xamppfiles/htdocs/FinalTask/Sanber/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Applications/XAMPP/xamppfiles/htdocs/FinalTask/Sanber/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

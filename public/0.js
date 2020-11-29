@@ -41,7 +41,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'campaign-item',
   props: ['campaign'],
@@ -80,7 +79,10 @@ var render = function() {
             "v-img",
             {
               staticClass: "white--text",
-              attrs: { src: _vm.campaign.image, height: "200px" }
+              attrs: {
+                src: "/photos/campaign/" + _vm.campaign.image,
+                height: "200px"
+              }
             },
             [
               _c("v-card-title", {

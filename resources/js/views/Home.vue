@@ -28,7 +28,7 @@
         <v-layout wrap>
           <v-carousel hide-delimeters height="250px">
             <v-carousel-item v-for="(blog, i) in blogs" :key="`blog-` + blog.id">
-                <v-img :src="blog.image" class="fill-height">
+                <v-img :src="'/photos/blog/'+blog.image" class="fill-height">
                    <v-container fill-height fluid pa-0 ma-0>
                       <v-layout fill-height align-end>
                         <v-flex xs12 mx-2>
@@ -60,6 +60,8 @@ export default {
         // console.log(response)
         let { data } = response.data
         this.campaigns = data.campaigns
+        console.log(this.campaigns)
+
       })
       .catch((error) => {
         let { response } = error

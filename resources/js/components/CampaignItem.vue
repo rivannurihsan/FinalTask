@@ -1,8 +1,7 @@
 <template>
   <div>
     <v-card :to="'/campaign/'+campaign.id">
-      <v-img
-        :src="campaign.image"
+      <v-img :src="'/photos/campaign/'+campaign.image"
         class="white--text"
         height="200px"
       >

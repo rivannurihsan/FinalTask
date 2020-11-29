@@ -14,21 +14,6 @@ class CampaignSeeder extends Seeder
      */
     public function run()
     {
-        // Campaign::insert([
-        //     [
-        //         'id'=>Str::uuid(),
-        //         'title'=> 'SpinnerCMS',
-        //         'description'=> 'Mengolah SEO artikel anda menjadi lebih baik tanpa plagiarsm',
-        //         'image'=> null,
-        //     ],
-        //     [
-        //         'id'=>Str::uuid(),
-        //         'title'=> 'MySirkah',
-        //         'description'=> 'Market Idea yang dapat daling membantu para inventor dan investor',
-        //         'image'=> null,
-        //     ],
-        // ]);
-
         $faker = Faker::create('id_ID');
  
     	for($i = 1; $i <= 20; $i++){

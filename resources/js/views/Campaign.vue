@@ -2,7 +2,7 @@
   <div>
     <v-card v-if="campaign.id" class="py-5 mx-2">
        <v-img 
-       :src="campaign.image" 
+       :src="'/photos/campaign/'+campaign.image" 
        class="white--text"
        height="350px"
        

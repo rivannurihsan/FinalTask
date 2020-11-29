@@ -41,7 +41,7 @@ class BlogController extends Controller
             $image=$request->file('image');
             $image_extension = $image->getClientOriginalExtension();
             $image_name = $blog->id.".".$image_extension;
-            $image_folder = 'photos/blog/';
+            $image_folder = '/photos/blog/';
             $image_location = $image_folder.$image_name;
 
             try {

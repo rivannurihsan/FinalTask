@@ -1,5 +1,7 @@
 <?php
 use App\Blog;
+use App\Role;
+use App\Campaign;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
@@ -19,12 +21,16 @@ class BlogSeeder extends Seeder
     	for($i = 1; $i <= 20; $i++){
  
     	      // insert data ke table pegawai menggunakan Faker
-    		DB::table('blogs')->insert([
+    		DB::table('campaigns')->insert([
     			'id'            => $faker->uuid,
-    			'title'         => $faker->sentence,
+    			'title'         => $faker->title,
     			'description'   => $faker->paragraph,
-                'image'         => $faker->image(public_path('/photos/blog/'),400,300, null, false),
+                'image'         => $faker->image(public_path('/photos/campaign'),400,300, null, false),
+                'address'       => $faker->address,
                 'created_at'    => now(),
+                'required'      => $faker->numberBetween(1000000,4000000),
+                'collected'     => $faker->numberBetween(1000000,3000000),
+
     		]);
  
     	}
